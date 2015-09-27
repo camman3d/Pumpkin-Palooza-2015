@@ -16,9 +16,9 @@ public class CoreBehavior : MonoBehaviour {
 	// Creation positions
 //	private Vector3 basePos = new Vector3 (0, 38, -15);
 	private Vector3 basePos = new Vector3 (0, -4, 10);
-	private Vector3 column1 = new Vector3(-8, 0, 0);
+	private Vector3 column1 = new Vector3(-6, 0, 0);
 	private Vector3 column2 = new Vector3(-0.35f, 0, 0);
-	private Vector3 column3 = new Vector3(7.3f, 0, 0);
+	private Vector3 column3 = new Vector3(5.3f, 0, 0);
 	private Vector3 top = new Vector3(0, 8, 0);
 	private Vector3 bottom = new Vector3(0, -5, 0);
 
