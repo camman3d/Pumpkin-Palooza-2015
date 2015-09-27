@@ -26,6 +26,10 @@ public class CrosshairBehavior : MonoBehaviour {
 				if (exploder != null) {
 					int points = exploder.explode();
 					CoreBehavior.scores[scoreIndex] += points;
+
+					// TODO: Merge in startOffset endpoint and use that
+					var explosionUrl = "http://localhost:9001/api/start/explosion";
+					WWW www = new WWW(explosionUrl);
 				}
 			}
 		} else {
