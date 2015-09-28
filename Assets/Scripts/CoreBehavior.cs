@@ -84,6 +84,7 @@ public class CoreBehavior : MonoBehaviour {
 	private void createBoss() {
 		GameObject clone = (GameObject)Instantiate (boss, bossPos, Quaternion.Euler(bossRot));
 		iTween.MoveTo (clone, bossDestPos, duration - totalTime);
+		BossBehaviour.visible = true;
 	}
 
 	// Update is called once per frame
