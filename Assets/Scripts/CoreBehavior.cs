@@ -35,7 +35,7 @@ public class CoreBehavior : MonoBehaviour {
 	private float crazyClearTime = 0.05f;
 	private float totalTime;
 
-	public static float duration = 0;
+	public static float duration = 33;
 
 	private int counter = 0;
 	private int basicCount = 4;
@@ -55,6 +55,8 @@ public class CoreBehavior : MonoBehaviour {
 		scores [1] = 0;
 		scores [2] = 0;
 		totalTime = 0;
+		BossBehaviour.visible = false;
+		BossBehaviour.health = 100;
 	}
 
 	private void createPumpkin(Vector3 column, bool up) {

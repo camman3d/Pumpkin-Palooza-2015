@@ -31,6 +31,10 @@ public class CrosshairBehavior : MonoBehaviour {
 					var explosionUrl = "http://localhost:9001/api/start/explosion";
 					WWW www = new WWW(explosionUrl);
 				}
+				BossBehaviour boss = hit.transform.GetComponent<BossBehaviour>();
+				if (boss != null) {
+					boss.hit(CoreBehavior.scores [scoreIndex]);
+				}
 			}
 		} else {
 			rawImage.color = Color.white;
