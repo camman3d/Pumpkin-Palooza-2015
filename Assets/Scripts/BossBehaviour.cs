@@ -3,10 +3,12 @@ using System.Collections;
 
 public class BossBehaviour : MonoBehaviour {
 
-	public readonly float damageModifier = 0.1f;
+	public readonly float damageModifier = 0.5f;
 
 	public static float health;
 	public static bool visible;
+
+	public GameObject explosion;
 
 	// Use this for initialization
 	void Start () {
@@ -18,12 +20,16 @@ public class BossBehaviour : MonoBehaviour {
 	}
 
 	public void hit (int damage) {
+		damage = Mathf.Max (damage, 1);
 		health -= damage * damageModifier;
-		Debug.Log ("Boss health: " + health);
 		if (health <= 0) {
-			Debug.Log("Boss Explosion");
+			var e = (GameObject) Instantiate(explosion);
+			e.transform.position = new Vector3(transform.position.x, transform.position.y + 30, transform.position.z - 50);
 			Destroy(gameObject);
 			visible = false;
+			CoreBehavior.scores[0] *= 2;
+			CoreBehavior.scores[1] *= 2;
+			CoreBehavior.scores[2] *= 2;
 		}
 	}
 }

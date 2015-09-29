@@ -7,6 +7,7 @@ public class ScoreTracker : MonoBehaviour {
 	private Text text;
 
 	public int scoreIndex;
+	public string prefix;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,6 @@ public class ScoreTracker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		text.text = CoreBehavior.scores [scoreIndex] + "";
+		text.text = prefix + CoreBehavior.scores [scoreIndex] + "";
 	}
 }

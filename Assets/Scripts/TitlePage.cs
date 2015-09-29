@@ -20,7 +20,7 @@ public class TitlePage : MonoBehaviour {
 		} else if (Input.GetKeyDown (keyCode2)) {
 			startGame("died", 31);
 		} else if (Input.GetKeyDown (keyCode3)) {
-			startGame("remains", 38);
+			startGame("remains2", 33);
 		} else if (Input.GetKeyDown (keyCode4)) {
 			startGame("", 33);
 		}
