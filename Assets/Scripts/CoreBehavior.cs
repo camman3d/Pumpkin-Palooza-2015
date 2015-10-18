@@ -16,9 +16,17 @@ public class CoreBehavior : MonoBehaviour {
 	// Creation positions
 //	private Vector3 basePos = new Vector3 (0, 38, -15);
 	private Vector3 basePos = new Vector3 (0, -4, 10);
-	private Vector3 column1 = new Vector3(-6, 0, 0);
+
+	// For Projector
+//	private Vector3 column1 = new Vector3(-6, 0, 0);
+//	private Vector3 column2 = new Vector3(-0.35f, 0, 0);
+//	private Vector3 column3 = new Vector3(5.3f, 0, 0);
+
+	// For Laptop
+	private Vector3 column1 = new Vector3(-8, 0, 0);
 	private Vector3 column2 = new Vector3(-0.35f, 0, 0);
-	private Vector3 column3 = new Vector3(5.3f, 0, 0);
+	private Vector3 column3 = new Vector3(7.3f, 0, 0);
+
 	private Vector3 top = new Vector3(0, 8, 0);
 	private Vector3 bottom = new Vector3(0, -5, 0);
 
@@ -35,7 +43,7 @@ public class CoreBehavior : MonoBehaviour {
 	private float crazyClearTime = 0.05f;
 	private float totalTime;
 
-	public static float duration = 33;
+	public static float duration = 30;
 
 	private int counter = 0;
 	private int basicCount = 4;
@@ -123,9 +131,16 @@ public class CoreBehavior : MonoBehaviour {
 				counter++;
 			}
 			if (counter >= downBurstCount) {
-				timer = upClearTime;
+				timer = downClearTime;
 				counter = 0;
-				mode = 4;
+				Debug.Log(totalTime);
+				if (totalTime < 25 && duration > 40) {
+					mode = 1;
+				} else if (totalTime < 40 && duration > 40) {
+					mode = 2;
+				} else {
+					mode = 4;
+				}
 			}
 		} else if (mode == 4) { // Burst down
 			if (timer <= 0) {
@@ -142,6 +157,7 @@ public class CoreBehavior : MonoBehaviour {
 		} else if (mode == 6) {
 			if (totalTime >= duration) {
 				mode = 0;
+				Debug.Log("Done!");
 				Application.LoadLevel("Title");
 			}
 		}

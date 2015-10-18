@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BossBehaviour : MonoBehaviour {
 
-	public readonly float damageModifier = 0.5f;
+	public readonly float damageModifier = 0.2f;
 
 	public static float health;
 	public static bool visible;
@@ -23,6 +23,7 @@ public class BossBehaviour : MonoBehaviour {
 		damage = Mathf.Max (damage, 1);
 		health -= damage * damageModifier;
 		if (health <= 0) {
+			DMXController.start("bossexplosion", 11);
 			var e = (GameObject) Instantiate(explosion);
 			e.transform.position = new Vector3(transform.position.x, transform.position.y + 30, transform.position.z - 50);
 			Destroy(gameObject);

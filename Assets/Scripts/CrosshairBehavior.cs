@@ -27,9 +27,8 @@ public class CrosshairBehavior : MonoBehaviour {
 					int points = exploder.explode();
 					CoreBehavior.scores[scoreIndex] += points;
 
-					// TODO: Merge in startOffset endpoint and use that
-					var explosionUrl = "http://localhost:9001/api/start/explosion";
-					WWW www = new WWW(explosionUrl);
+					var channel = scoreIndex + 8;
+					DMXController.start("explostion", channel);
 				}
 				BossBehaviour boss = hit.transform.GetComponent<BossBehaviour>();
 				if (boss != null) {
